@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ category.name }} - Our Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+</head>
+<body class="font-sans">
+
+  <header class="bg-gray-800 text-white py-4">
+      <div class="container mx-auto text-center">
+          <h1 class="text-2xl">Mandala Arts</h1>
+      </div>
+  </header>
+
+  <main class="container mx-auto mt-8">
+      <section class="category">
+          <h2 class="text-3xl font-bold mb-4">{{ category.name }} Products</h2>
+          <p class="text-gray-600">{{ category.description }}</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+              {% for product in category.products %}
+                  <div class="bg-white rounded-lg p-4 shadow-md">
+                      <img src="{{ product.image }}" alt="{{ product.name }}" class="w-full h-40 object-cover mb-4">
+                      <h3 class="text-xl font-semibold">{{ product.name }}</h3>
+                      <p class="text-gray-600">{{ product.description }}</p>
+                      <p class="text-green-600 font-bold mt-2">Price: ${{ product.price }}</p>
+                      <button class="bg-green-500 text-white px-4 py-2 rounded-full mt-4 hover:bg-green-600">Add to Cart</button>
+                  </div>
+              {% endfor %}
+          </div>
+      </section>
+  </main>
+
+  <footer class="bg-gray-800 text-white py-4 mt-8">
+      <div class="container mx-auto text-center">
+          <p>&copy; 2024 Mandala Arts</p>
+      </div>
+  </footer>
+
+</body>
+</html>
